@@ -1,0 +1,205 @@
+<!--pages/video/video.wxml-->
+<import src="./../../common/template.wxml" />
+
+<view class='videoPage'>
+  <view wx:if="{{videoPage}}" style='width:100%;height:100%;'>
+    <view class='videoSrc'>
+      <video src=''>
+      </video>
+    </view>
+    <scroll-view scroll-y>
+      <view wx:if="{{content}}">
+        <view class='ads common' wx:if="{{adTime}}">
+          <view>
+            <text>广告倒计时 <text style='color:orange'>{{adTime}}</text> 秒</text>
+            <text class='ads-disappear' wx:if="{{adFastTime}}">{{adFastTime}}秒后可跳过</text>
+            <text class='ads-disappear' wx:else bindtap='closeAds'>点击跳过</text>
+          </view>
+        </view>
+        <view class='videoContent common'>
+          <view class='videoTitle clearfix'>
+            <view class='fl'>
+              <text>极限挑战 第四季</text>
+            </view>
+            <view class='des-words fr' data-flag='introduce' bindtap='detail'>
+              <text class=''>简介</text>
+              <image class='' src='./../../images/icon/turn-right.png' style='width:25rpx;height:25rpx'></image>
+            </view>
+          </view>
+          <view class='video-varity'>
+            户外真人秀 * 免费*
+            <text style='color:orange'> VIP </text>*8480.8万
+          </view>
+          <view class='share clearfix'>
+            <view class='video-type fl'>
+              <text>高清</text>
+              <image src='./../../images/icon/turn-down.png' style='width:25rpx;height:25rpx'></image>
+            </view>
+            <view class='collect fr'>
+              <image src='./../../images/icon/share.png' style='width:45rpx;height:45rpx;margin-right:40rpx;'></image>
+              <image src='./../../images/icon/collect.png' style='width:50rpx;height:50rpx'></image>
+            </view>
+          </view>
+          <view class='series'>
+            <view class='series-title'>
+              <text style="font-size:15px;font-weight:600;color:#fff">剧集</text>
+              <view data-flag='series' bindtap='detail'>
+                <text style="font-size:12px;">每周三周四20点免费更新2集</text>
+                <image class='' src='./../../images/icon/turn-right.png' style='width:25rpx;height:25rpx'></image>
+              </view>
+            </view>
+            <view class="scroll_box">
+              <scroll-view class="series-num" scroll-x style="width: auto;overflow:hidden;">
+                <text>1</text>
+                <text>1</text>
+                <text>1</text>
+                <text>1</text>
+                <text>1</text>
+                <text>1</text>
+                <text>1</text>
+                <text>1</text>
+                <text>1</text>
+                <text>1</text>
+              </scroll-view>
+            </view>
+          </view>
+          <view class='focus series'>
+            <view class='series-title'>
+              <text style="font-size:15px;font-weight:600;color:#fff">2018-05-18 看点</text>
+              <view data-flag='focus' bindtap='detail'>
+                <text style="font-size:12px;">36</text>
+                <image class='' src='./../../images/icon/turn-right.png' style='width:25rpx;height:25rpx'></image>
+              </view>
+            </view>
+            <view class="scroll_box">
+              <scroll-view class="series-num" scroll-x style="width: auto;overflow:hidden;">
+                <view class='focus-simple'>
+                  <text>矿冶园——矿冶科技资源共享平台，是服务于矿冶垂直领域科技资源共享的专门性平台，旗下拥有“矿冶威客-矿冶科技众包平台”、“矿冶学堂-矿冶在线教育平台”、“矿冶传媒-矿冶资讯传播平台”三大子平台。
+              </text>
+                </view>
+                <view class='focus-simple'>
+                  <text>矿冶园——矿冶科技资源共享平台，是服务于矿冶垂直领域科技资源共享的专门性平台，旗下拥有“矿冶威客-矿冶科技众包平台”、“矿冶学堂-矿冶在线教育平台”、“矿冶传媒-矿冶资讯传播平台”三大子平台。
+              </text>
+                </view>
+                <view class='focus-simple'>
+                  <text>矿冶园——矿冶科技资源共享平台，是服务于矿冶垂直领域科技资源共享的专门性平台，旗下拥有“矿冶威客-矿冶科技众包平台”、“矿冶学堂-矿冶在线教育平台”、“矿冶传媒-矿冶资讯传播平台”三大子平台。
+              </text>
+                </view>
+              </scroll-view>
+            </view>
+          </view>
+        </view>
+        <view class='recommend common'>
+          <view style='padding:20rpx 0;font-size:14px;font-weight:600;'>相关推荐</view>
+          <template is="mvList"></template>
+          <view style='text-align:center;padding:40rpx;border-bottom:1rpx solid #333;'>
+            <text>全部</text>
+          </view>
+        </view>
+        <view class='comments common'>
+          <view class='self-comment'>
+            <image src='./../../images/icon/head.png' style='width:65rpx;height:65rpx'></image>
+            <input type="text" placeholder='我来说两句' bindfocus='creatComment'></input>
+          </view>
+          <view class='comments-list'>
+            <view class='comments-user'>
+              <view class='comments-name'>
+                <image src='https://puui.qpic.cn/media_img/0/null1515833526/0' style='width:85rpx;height:85rpx;border-radius:50%'></image>
+                <text class='fontColor-name'>腾讯评论</text>
+                <text style='border:1px solid orange;border-radius:5px;color:orange;padding:5rpx;font-size:8px;'>置顶</text>
+              </view>
+              <view class='comment-user'>
+                <image src='./../../images/icon/like.png' style='width:35rpx;height:35rpx;margin-right:7px;'></image>
+                <text>782</text>
+              </view>
+            </view>
+            <view class='comments-content'>
+              <view style='color: #ddd;' style='line-height:18px;'>矿冶园——矿冶科技资源共享平台，是服务于矿冶垂直领域科技资源共享的专门性平台，旗下拥有“矿冶威客-矿冶科技众包平台”、“矿冶学堂-矿冶在线教育平台”、“矿冶传媒-矿冶资讯传播平台”三大子平台。矿冶园致力于聚合企业、高校及科研院所相关资源，建立合作与共享机制，打造矿冶科技共享、投资顾问综合服务平台，促进矿冶资源共享，助力矿冶科技创新，推动矿冶产业发展。
+              </view>
+              <view class='reply'>
+                <text class='fontColor-name'>买辣椒也用券：</text>
+                <text>与政府、园区、企业建立合作机制，将矿冶企业及科研院所面临的生产问题、科技难题以购买服务或悬赏招标的形式来解决，促进矿冶领域的人才共享、成果共享、设备共享。
+          </text>
+              </view>
+              <view class='reply'>
+                <text class='fontColor-name'>买辣椒也用券：</text>
+                <text>与政府、园区、企业建立合作机制，将矿冶企业及科研院所面临的生产问题、科技难题以购买服务或悬赏招标的形式来解决，促进矿冶领域的人才共享、成果共享、设备共享。
+          </text>
+              </view>
+              <view class='fontColor-name'>查看全部99条回复</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view wx:if="{{'introduce'==flag}}">
+        <view class='videoContent common'>
+          <view class='videoTitle clearfix'>
+            <view class='fl'>
+              <text>极限挑战 第四季</text>
+            </view>
+            <view class='des-words fr'>
+              <image class='' bindtap='origin' src='./../../images/icon/turn-down-2.png' style='width:35rpx;height:35rpx'></image>
+            </view>
+          </view>
+          <view class='video-varity'>
+            户外真人秀 * 免费*
+            <text style='color:orange'> VIP </text>*8480.8万
+          </view>
+          <view style='padding-top:20px;border-top: 1rpx solid #333;'>
+            <text style='color:#fff;font-size:16px;font-weight:600'>简介</text>
+            <view style='line-height:20px;padding:10px 0;'>矿冶园——矿冶科技资源共享平台，是服务于矿冶垂直领域科技资源共享的专门性平台，旗下拥有“矿冶威客-矿冶科技众包平台”、“矿冶学堂-矿冶在线教育平台”、“矿冶传媒-矿冶资讯传播平台”三大子平台。矿冶园致力于聚合企业、高校及科研院所相关资源，建立合作与共享机制，打造矿冶科技共享、投资顾问综合服务平台，促进矿冶资源共享，助力矿冶科技创新，推动矿冶产业发展。
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='common' wx:if="{{'series'==flag}}">
+        <view class='series'>
+          <view class='series-title'>
+            <text style="font-size:15px;font-weight:600;color:#fff">剧集</text>
+            <view>
+              <image class='' bindtap='origin' src='./../../images/icon/turn-down-2.png' style='width:35rpx;height:35rpx'></image>
+            </view>
+          </view>
+          <view class='big-series'>
+            <text>1</text>
+            <text>1</text>
+            <text>1</text>
+            <text>1</text>
+            <text>1</text>
+            <text>1</text>
+            <text>1</text>
+            <text>1</text>
+            <text>1</text>
+            <text>1</text>
+            <text>1</text>
+            <text>1</text>
+            <text>1</text>
+            <text>1</text>
+            <text>1</text>
+          </view>
+        </view>
+      </view>
+      <view wx:if="{{'focus'==flag}}" class='common'>
+        <view class='focus series'>
+          <view class='series-title'>
+            <text style="font-size:15px;font-weight:600;color:#fff">2018-05-18 看点</text>
+            <view>
+              <image class='' bindtap='origin' src='./../../images/icon/turn-down-2.png' style='width:35rpx;height:35rpx'></image>
+            </view>
+          </view>
+        </view>
+        <template is="mvList"></template>
+      </view>
+    </scroll-view>
+  </view>
+  <view wx:if="{{comment}}" style='padding:25px 20px'>
+    <view class='comments-info'>
+      <text style='font-size:20px;font-weight:600'>评论</text>
+      <image bindtap="origin" src='./../../images/icon/turn-down-2.png' style='width:30px;height:30px'></image>
+    </view>
+    <form class='sendComment clearfix'>
+      <textarea type='text' auto-focus="true" placeholder='我来说两句(150字)' maxlength="150" placeholder-style="color:#fff;font-size；16px;" cursor-spacing="60" show-confirm-bar="true"></textarea>
+      <button class='send fr'>提交</button>
+    </form>
+  </view>
+</view>

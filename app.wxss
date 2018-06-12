@@ -1,0 +1,19 @@
+/**app.wxss**/
+page,view,text,image,button,video,scroll-view,textarea,form{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
+.clearfix::after{
+  content: "";
+  height:0;
+  display: block;
+  clear: both;
+  visibility: hidden;
+}

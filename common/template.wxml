@@ -1,0 +1,9 @@
+<template name="mvList">
+  <view class='recommend-content'>
+    <image src='http://www.kuangyeyuan.com/wp-content/themes/darkal/images/z4.jpg'></image>
+    <view class='recommend-title' style=''>
+      <view style='line-height:36rpx;'>第四期：男人帮回1984打工第四期：男人帮回1984打工</view>
+      <view style='font-size:12px;color:#666'>8512.4万次播放</view>
+    </view>
+  </view>
+</template>
